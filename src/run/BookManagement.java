@@ -136,8 +136,8 @@ public class BookManagement {
                showProduct();
                break;
             case 3:
-               break;
-                
+               sortByProductPrice()
+               break; 
             case 4:
                 deleteProduct(scanner);
                break;
@@ -178,6 +178,13 @@ public class BookManagement {
       System.out.println("Enter product id want delete");
       String deleteId = scanner.nextLine();
       productFuture.delete(deleteId);
+   }
+    public static void sortByProductPrice(){
+      Collections.sort(productFuture.getAll(), new SortProductByPrice());
+      for (Product product : ProductService.products){
+         System.out.println(product.toString());
+      }
+
    }
    public static void searchProduct(Scanner scanner){
       System.out.println("Enter product name want search");
