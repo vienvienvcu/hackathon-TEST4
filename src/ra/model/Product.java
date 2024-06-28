@@ -108,7 +108,7 @@ public class Product implements Comparable<Product> {
     public String inputProductId(Scanner scanner){
         System.out.println("Enter product ID");
         do {
-            String productId = scanner.nextline();
+            String productId = scanner.nextLine();
             String productRegex = "^P\\d{4}$";
             if (Pattern.matches(productRegex, productId)){
                 boolean isExits = false;
@@ -134,7 +134,7 @@ public class Product implements Comparable<Product> {
     public String inputProductName(Scanner scanner){
         System.out.println("Enter product name");
         do {
-            String productName = scanner.nextline();
+            String productName = scanner.nextLine();
             if (productName.isEmpty()){
                 System.err.println("product name cannot empty");
             }else {
@@ -159,14 +159,14 @@ public class Product implements Comparable<Product> {
 
     public String inputDescription(Scanner scanner){
         System.out.println("Enter description");
-        String description = scanner.next();
+        String description = scanner.nextLine();
         return this.description = description;
     }
     public int inputStock(Scanner scanner){
         System.out.println("Enter stock");
 
         do {
-            int stock = Integer.parseInt(scanner.nextline());
+            int stock = Integer.parseInt(scanner.nextLine());
             if (stock >=10){
                 return this.stock = stock;
             }else {
