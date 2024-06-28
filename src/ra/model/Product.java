@@ -9,7 +9,7 @@ import javax.xml.crypto.dom.DOMCryptoContext;
 import java.util.Scanner;
 import java.util.regex.Pattern;
 
-public class Product {
+public class Product implements Comparable<Product> {
     private String productId;
     private String productName;
     private double productPrice;
@@ -202,5 +202,9 @@ public class Product {
                 ", catalog=" + this.catalog.getCatalogName() +
                 ", status=" +status +
                 '}';
+    }
+      @Override
+    public int compareTo(Product o) {
+        return Double.compare(o.productPrice,this.productPrice);
     }
 }
