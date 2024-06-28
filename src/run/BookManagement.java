@@ -110,7 +110,7 @@ public class BookManagement {
       }
    }
    public static void deleteCatalog(Scanner scanner) {
-      System.out.println("Enter class id want delete");
+      System.out.println("Enter catalog id want delete");
       int catalogId = Integer.parseInt(scanner.nextLine());
       catalogFuture.delete(catalogId);
    }
@@ -170,6 +170,7 @@ public class BookManagement {
         System.out.println(product.toString());
       }
    }
+   
 
 
 }
