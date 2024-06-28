@@ -93,7 +93,7 @@ public class BookManagement {
          System.err.println("There are no product in the system");
       }
       for (Catalog catalog : CatalogService.categories){
-         catalog.toString();
+         System.out.println(catalog.toString());
       }
    }
 
