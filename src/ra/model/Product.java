@@ -147,7 +147,7 @@ public class Product implements Comparable<Product> {
     public Double inputProductPrice(Scanner scanner){
         System.out.println("Enter product price");
         do {
-            Double productPrice = Double.parseDouble(scanner.nextline());
+            Double productPrice = Double.parseDouble(scanner.nextLine());
             if (productPrice > 0){
                 return this.productPrice = productPrice;
             }else {
