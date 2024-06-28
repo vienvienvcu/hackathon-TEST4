@@ -108,8 +108,8 @@ public class Product {
     public String inputProductId(Scanner scanner){
         System.out.println("Enter product ID");
         do {
-            String productId = scanner.next();
-            String productRegex = "^P\\w{3}$";
+            String productId = scanner.nextline();
+            String productRegex = "^P\\d{4}$";
             if (Pattern.matches(productRegex, productId)){
                 boolean isExits = false;
                 for (Product p : ProductService.products){
@@ -134,7 +134,7 @@ public class Product {
     public String inputProductName(Scanner scanner){
         System.out.println("Enter product name");
         do {
-            String productName = scanner.next();
+            String productName = scanner.nextline();
             if (productName.isEmpty()){
                 System.err.println("product name cannot empty");
             }else {
@@ -147,7 +147,7 @@ public class Product {
     public Double inputProductPrice(Scanner scanner){
         System.out.println("Enter product price");
         do {
-            Double productPrice = Double.parseDouble(scanner.next());
+            Double productPrice = Double.parseDouble(scanner.nextline());
             if (productPrice > 0){
                 return this.productPrice = productPrice;
             }else {
@@ -166,7 +166,7 @@ public class Product {
         System.out.println("Enter stock");
 
         do {
-            int stock = Integer.parseInt(scanner.next());
+            int stock = Integer.parseInt(scanner.nextline());
             if (stock >=10){
                 return this.stock = stock;
             }else {
