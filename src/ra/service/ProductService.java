@@ -28,7 +28,7 @@ public class ProductService implements IProductFuture{
     @Override
     public Product findById(String id) {
         for (Product product : products) {
-            if (product.getProductId() == id){
+            if (product.getProductId().equals(id)){
                 return product;
             }
         }
