@@ -102,9 +102,9 @@ public class BookManagement {
       int catalogid =Integer.parseInt(scanner.nextLine());
       Catalog indexUpdate = catalogFuture.findById(catalogid);
       if(indexUpdate != null){
-         Catalog catalogUpdate = CatalogService.categories.get(indexUpdate.getCatalogId());
+      
          System.out.println("update catalog name: ");
-         catalogUpdate.setCatalogName(scanner.nextLine());
+          indexUpdate.setCatalogName(scanner.nextLine());
       }else {
          System.err.println("catalog id not found");
       }
