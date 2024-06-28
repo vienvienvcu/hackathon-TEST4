@@ -167,7 +167,7 @@ public class BookManagement {
          System.err.println("There are no product in the system");
       }
       for (Product product : ProductService.products){
-         product.toString();
+        System.out.println(product.toString());
       }
    }
 
