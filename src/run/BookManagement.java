@@ -137,11 +137,15 @@ public class BookManagement {
                break;
             case 3:
                break;
+                
             case 4:
+                deleteProduct(scanner);
                break;
             case 5:
+               searchProduct(scanner);
                break;
             case 6:
+               updateProduct(scanner);
                break;
             case 7:
                isExit = false;
@@ -170,6 +174,64 @@ public class BookManagement {
         System.out.println(product.toString());
       }
    }
+   public static void deleteProduct(Scanner scanner){
+      System.out.println("Enter product id want delete");
+      String deleteId = scanner.nextLine();
+      productFuture.delete(deleteId);
+   }
+   public static void searchProduct(Scanner scanner){
+      System.out.println("Enter product name want search");
+      String searchName = scanner.nextLine();
+      for (Product product : ProductService.products){
+         if (product.getProductName().toLowerCase().contains(searchName.toLowerCase())){
+            System.out.println(product.toString());
+         }
+      }
+      System.out.println("Search product successfully");
+   }
+   public static void updateProduct(Scanner scanner){
+      System.out.println("Enter product id want update");
+      String updateId = scanner.nextLine();
+      Product indexProductUpdate = productFuture.findById(updateId);
+      if (indexProductUpdate != null){
+         boolean isExit = true;
+         do {
+            System.out.println("1. Update product name ");
+            System.out.println("2. Update product price ");
+            System.out.println("3. Update product description ");
+            System.out.println("4. Update product category ");
+            System.out.println("5. Update product stock ");
+            System.out.println("6. EXIT");
+            System.out.println("your choice 1-6");
+            int choice = Integer.parseInt(scanner.nextLine());
+            switch (choice) {
+               case 1:
+                  indexProductUpdate.setProductName(indexProductUpdate.inputProductName(scanner));
+                  break;
+               case 2:
+                  indexProductUpdate.setProductPrice(indexProductUpdate.inputProductPrice(scanner));
+                  break;
+               case 3:
+                  indexProductUpdate.setDescription(scanner.nextLine());
+                  break;
+               case 4:
+                  indexProductUpdate.setCatalog(indexProductUpdate.inputCatalog(scanner));
+                  break;
+               case 5:
+                  indexProductUpdate.setStatus(Boolean.parseBoolean(scanner.nextLine()));
+                  break;
+               case 6:
+                  isExit = false;
+                  break;
+               default:
+                  System.err.println("Invalid choice, please try again choice 1-6");
+            }
+         }while (isExit);
+      }else {
+         System.err.println("Product not found");
+      }
+   }
+
    
 
 
